@@ -16,18 +16,71 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:context=".locationreminders.ReminderDescriptionActivity">
-        <!--TODO: add the design of the reminder details-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:id="@+id/reminder_image"
+            android:src="@drawable/reminder"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:contentDescription="@string/reminder_image"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Reminder Details"
+            android:id="@+id/reminder_details"
+            android:paddingTop="@dimen/padding_normal"
+            android:text="@string/reminder_details"
             android:textSize="@dimen/text_size_large"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/reminder_image"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingLeft="@dimen/padding_normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reminder_title"
+            android:paddingTop="@dimen/padding_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reminder_details"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            android:text="@={reminderDataItem.title}"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingLeft="@dimen/padding_normal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reminder_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reminder_title"
+            android:paddingTop="@dimen/padding_normal"
+            android:textSize="@dimen/text_size_medium"
+            android:text="@={reminderDataItem.description}"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingLeft="@dimen/padding_normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/reminder_description"
+            app:layout_constraintTop_toBottomOf="@id/reminder_details"
+            android:id="@+id/reminder_location"
+            android:drawableStart="@drawable/ic_location"
+            android:paddingTop="@dimen/padding_normal"
+            android:textSize="@dimen/text_size_medium"
+            android:text="@={reminderDataItem.location}"
+            android:drawableLeft="@drawable/ic_location"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingLeft="@dimen/padding_normal"/>
 
     </LinearLayout>
 </layout>
