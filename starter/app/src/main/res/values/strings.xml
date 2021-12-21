@@ -42,4 +42,13 @@
     <string name="error_adding_geofence">Error Happened, Can\'t Add Geofence</string>
     <string name="reminder_image">Reminder Image</string>
     <string name="reminder_details">Reminder Details</string>
+    <string name="error_add_reminders">Add some reminders</string>
+    <string name="ok">OK</string>
+    <string name="cancel">cancel</string>
+    <string name="location_name">Location name..</string>
+    <string name="anonymous_place">A nice, anonymus location</string>
+    <string name="map_fragment">map_fragment</string>
+    <string name="save_the_location">Save the location</string>
+    <string name="radius">Radius</string>
+    <string name="save_reminder">Save reminder</string>
 </resources>

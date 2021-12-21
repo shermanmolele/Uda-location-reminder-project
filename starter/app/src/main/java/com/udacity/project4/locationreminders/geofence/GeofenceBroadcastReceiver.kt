@@ -16,9 +16,10 @@ import android.content.Intent
 
 class GeofenceBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-
-        GeofenceTransitionsJobIntentService.enqueueWork(context, intent)
-
+        if (intent.action == GeofenceConstants.ACTION_GEOFENCE_EVENT) {
+            // Delegate to our Job intent service
+            GeofenceTransitionsJobIntentService.enqueueWork(context, intent)
+        }
 
     }
 }
