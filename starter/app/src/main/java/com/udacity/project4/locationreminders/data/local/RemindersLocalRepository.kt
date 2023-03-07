@@ -3,7 +3,10 @@ package com.udacity.project4.locationreminders.data.local
 import com.udacity.project4.locationreminders.data.ReminderDataSource
 import com.udacity.project4.locationreminders.data.dto.ReminderDTO
 import com.udacity.project4.locationreminders.data.dto.Result
-import kotlinx.coroutines.*
+import com.udacity.project4.utils.wrapEspressoIdlingResource
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * Concrete implementation of a data source as a db.
@@ -35,8 +38,10 @@ class RemindersLocalRepository(
      * @param reminder the reminder to be inserted
      */
     override suspend fun saveReminder(reminder: ReminderDTO) =
-        withContext(ioDispatcher) {
-            remindersDao.saveReminder(reminder)
+        wrapEspressoIdlingResource {
+            withContext(ioDispatcher) {
+                remindersDao.saveReminder(reminder)
+            }
         }
 
     /**

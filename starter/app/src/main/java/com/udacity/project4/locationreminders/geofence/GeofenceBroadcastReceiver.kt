@@ -15,8 +15,13 @@ import android.content.Intent
  */
 
 class GeofenceBroadcastReceiver : BroadcastReceiver() {
+    companion object {
+        const val ACTION_GEOFENCE_EVENT =
+            "locationreminders.geofence.action.ACTION_GEOFENCE_EVENT"
+    }
+
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action == GeofenceConstants.ACTION_GEOFENCE_EVENT) {
+        if (intent.action == ACTION_GEOFENCE_EVENT) {
             // Delegate to our Job intent service
             GeofenceTransitionsJobIntentService.enqueueWork(context, intent)
         }
